@@ -17,14 +17,12 @@
                             <th>Type</th>
                             <th>Media</th>
                         </tr>
-                        <!-- TODO use v-for to create one table row for each activity record -->
-
-                        <tr v-for="record in activityRecords">
+                        <activity-row v-for="record in activityRecords" v-bind:record="record">
                             <td>{{ record.date | shortDate }}</td>
                             <td>{{ record.hours }}</td>
                             <td>{{ record.type }}</td>
                             <td>{{ record.medium }}</td>
-                        </tr>
+                        </activity-row>
                     </table>
                 </div>
             </div>
@@ -37,7 +35,9 @@
 </template>
 
 <script>
+import ActivityRow from './ActivityRow.vue'
 export default {
+  components: { ActivityRow },
     //create component here 
     name: 'RecordsTable',
     props: {
@@ -47,6 +47,7 @@ export default {
     methods: {
         activityRecords(){
             //emit message to parent(app.vue)
+            this.$emit('new-record-added', this.record)
         }
     }
 }
