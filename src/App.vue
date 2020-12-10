@@ -1,7 +1,9 @@
 <template>
   <div id="app">
     
-    <new-activity-record v-on:record-added="newRecordAdded"></new-activity-record>
+    <new-activity-record v-on:record-added="newRecordAdded"
+      v-bind:types="types" v-bind:media="media" v-bind:activity="activity"
+    ></new-activity-record>
     <records-table v-bind:records="records"></records-table>
     <activity-row></activity-row>
     <summary-message></summary-message>
@@ -29,7 +31,10 @@ export default {
   },
   data(){
     return{
-      records: []
+      records: [],
+      activity: 'Art',  // string - concept name - whatever the activity is 
+      types: ['sketching', 'drawing', 'painting'],    // an array of subtypes of the activity 
+      media: { digital: 'Digital', traditional: 'Traditional'}   // a choice of two things
     }
   },
   methods:{

@@ -65,7 +65,7 @@
 
                 <div>
                     <!-- TODO Add v-on:click -->
-                    <button class="btn btn-primary mt-2" type="button" v-on:click="submit">Add record</button>
+                    <button class="btn btn-primary mt-2" type="button" v-on:click="addNewRecord">Add record</button>
                 </div>
                 
             </div>
@@ -79,6 +79,11 @@
 export default {
     //create component here 
     name: 'NewActivityRecord',
+    props: {
+        types: Array,
+        media: Object,
+        activity: String
+    },
     data(){
         return {
                 activity:'',

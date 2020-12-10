@@ -17,7 +17,7 @@
                             <th>Type</th>
                             <th>Media</th>
                         </tr>
-                        <activity-row v-for="record in activityRecords" v-bind:record="record">
+                        <activity-row v-for="record in records" v-bind:record="record">
                             <td>{{ record.date | shortDate }}</td>
                             <td>{{ record.hours }}</td>
                             <td>{{ record.type }}</td>
@@ -42,13 +42,13 @@ export default {
     name: 'RecordsTable',
     props: {
         //display list of records
-        record: Array
+        records: Array
     },
     methods: {
-        activityRecords(){
-            //emit message to parent(app.vue)
-            this.$emit('new-record-added', this.record)
-        }
+        // activityRecords(){
+        //     //emit message to parent(app.vue)
+        //     this.$emit('new-record-added', this.record)
+        // }
     }
 }
 </script>
