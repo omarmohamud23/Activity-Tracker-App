@@ -78,6 +78,60 @@
 <script>
 export default {
     //create component here 
+    name: 'NewActivityRecord',
+    data(){
+        return {
+                activity:'',
+                dateString: '',
+                hours: '',
+                type: '',
+                medium: '',
+                errors: []
+
+        }
+    },
+    methods: {
+        addNewRecord(){
+            //clearing previous errors if there is any
+                        this.errors = []
+                        
+                        //converting dateString into Date object
+                        let date = new Date(this.dateString)
+
+                        //validating date, in today or past
+                     if (!this.dateString || this.dateString == 'Invalid Date' || date > new Date() ) {   
+                        this.errors.push('Select a valid date, today or in the past.')
+                    }
+
+
+                    if(this.hours <= 0 || this.hours > 24 ) {
+                        this.errors.push('The number of hours must be greater than 0 and less than 24')
+                    }
+
+                    if(!this.type){
+                        this.errors.push('Select a type')
+                    }
+
+                    if (!this.medium) {
+                        this.errors.push('Select a media')
+                    }
+
+                    if (this.errors.length == 0) {
+                        
+              let record = { date: date,hours: this.hours,type: this.type,medium: this.medium }
+
+                        //emit message to parent with new record
+                        this.$emit('record-added', record)
+                        
+                        this.activity = ''
+                        this.dateString = ''
+                        this.hours = ''
+                        this.type = ''
+                        this.medium = ''
+                    }
+
+        }
+    }
 }
 </script>
 
