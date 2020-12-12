@@ -8,7 +8,7 @@ let Record  = db.Student
 let router = express.Router()
 
 router.get('/records', function(req, res, next){
-    Record.findAll({ order: ['name'] }).then(records => {
+    Record.findAll().then(records => {
         return res.json(records)
     })
     .catch( err => next (err))

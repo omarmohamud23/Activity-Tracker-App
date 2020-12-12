@@ -39,23 +39,32 @@ export default {
       media: {Indoor:'Indoor Activities',  Outdoor: 'Outdoor Activities'}
     }
   },
+  mounted(){
+    this.updateRecord()
+  },
   methods:{
-    newRecordAdded(record) {
-      this.records.push(record)
-      this.records.sort(function(r1,r2){
-      return r2.date.getTime() - r1.date.getTime()
+    newRecordAdded(record){
+      this.$record_api.getAllRecords(record).then( record => {
+        this.updateRecord()
+      }),catcg(err => {
+        let message = err.response.data.join(',')
+        alert('Error adding  your record, Please add a different one', message)
       })
-       },
-       recordDeleted(record){
-         //filter return a new array of all records
-        this.records = this.records.filter(function(s){
-          if (s != record) {
-            return true
-          }
-        })
-       }
     }
+  },
+  recordDeleted(record){
+    this.$record_api.deleteRecord(record).then ( () =>{
+      this.updateRecord()
+    })
+  },
+  updateRecord(){
+    this.$record_api.getAllRecords().then( records =>{
+      this.records = records
+    })
   }
+ 
+    }
+  
 </script>
 
 <style>

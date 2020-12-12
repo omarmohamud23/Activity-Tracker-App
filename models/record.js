@@ -4,23 +4,28 @@ module.exports = (sequelize, DataTypes) => {
     
     let Record = sequelize.define('Record', {
         records: {
-            type: DataTypes.STRING
+            type: DataTypes.STRING,
+            allowNull: false
         },
 
         activity:{
-            type: DataTypes.STRING
+            type: DataTypes.STRING,
+            allowNull: false
         },
 
         media:{
-            type: DataTypes.OBJECT
+            type: DataTypes.OBJECT,
+            allowNull: false
         },
 
         types: {
-            type: DataTypes.ARRAY
+            type: DataTypes.ARRAY,
+            allowNull: false
+            
     }
 })
 
-Record.sync( {force: true} ).then( ()=>{
+Record.sync( {force: false} ).then( ()=>{
     console.log('Synced record table')
 })
 
