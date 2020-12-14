@@ -8,7 +8,7 @@ let Record  = db.Record
 let router = express.Router()
 
 router.get('/records', function(req, res, next){
-    Record.findAll().then(records => {
+    Record.findAll( { order: ['id']} ).then(records => {
         return res.json(records)
     })
     .catch( err => next (err))
@@ -16,17 +16,23 @@ router.get('/records', function(req, res, next){
 })
 
 
-router.post('/records', function(req, res, next){
-    Record.create( req.body ).then( data => {
+router.post('/records' ,function (req, res, next){
+    let requestData = req.body
+
+    Record.create(requestData).then( (data) => {
         return res.status(201).send('ok')
-    }).catch ( err => {
-        if ( err instanceof sequelize.ValidationError) {
-            let messages = err.errors.map (e=>e.message)
-            return res.status(500).json(messages)
+    }).catch (err => {
+        if(err instanceof Sequelize.ValidationError) {
+            let messages = err.errors.map( (e) => e.message)
+            
+            console.log(messages)
+            return res.status(400).json(messages)
         }
+
         return next(err)
     })
 })
+    
 
 router.patch('/records/:id', function(req, res, next) {
 
@@ -44,4 +50,4 @@ router.delete('/records/:id', function(req, res, next){
         })
 })
 
-module.exports = router 
+module.exports = router

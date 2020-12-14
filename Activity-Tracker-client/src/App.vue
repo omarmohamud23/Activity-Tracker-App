@@ -5,7 +5,7 @@
     v-on:record-added="newRecordAdded" 
     v-bind:types="types" 
     v-bind:media="media" 
-    v-bind:activity="activity">
+   >
     </new-activity-record>
     <records-table v-bind:records="records" 
      v-on:delete-record="recordDeleted"></records-table>
@@ -44,15 +44,16 @@ export default {
     },
     methods:{
     newRecordAdded(record){
-    this.$record_api.getAllRecords(record).then( record => {
+      //tell server to add new record
+      console.log(record)
+    this.$record_api.addRecord(record).then( record => {
       this.updateRecord()
-    }),catcg(err => {
+    }).catch(err => {
      let message = err.response.data.join(',')
     alert('Error adding  your record, Please add a different one', message)
         })
-      }
-    },
-    recordDeleted(record){
+      },
+       recordDeleted(record){
       this.$record_api.deleteRecord(record).then ( () =>{
         this.updateRecord()
       })
@@ -62,6 +63,8 @@ export default {
         this.records = records
       })
     }
+    }
+    
   
       }
     

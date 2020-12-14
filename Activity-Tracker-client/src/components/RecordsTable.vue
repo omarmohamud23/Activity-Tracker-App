@@ -27,10 +27,11 @@
                         </tr>
                      <activity-row 
                      v-for="record in records"
+                     v-bind:key="record.id"
                      v-bind:record="record"
                      v-on:delete-record="deleteRecord"
                      v-bind:edit="editRecord">
-                            <td>{{ record.date | shortDate }}</td>
+                            <td>{{ record.date}}</td>
                             <td>{{ record.hours }}</td>
                             <td>{{ record.type }}</td>
                             <td>{{ record.medium }}</td>
@@ -78,15 +79,8 @@ export default {
         return this.records.length + ' records '
          }
         }
-        },
-    filters:{
-        lowercase(text) {
-        return text.toLowerCase()
-         },
-        shortDate(date) {
-       return new Intl.DateTimeFormat('en-US', { timeZone: 'UTC'}).format(date)
         }
-    }
+   
 }
 </script>
 

@@ -19,15 +19,26 @@
 
 <script>
 
-export default {
-    //create component here
-    name: 'SummaryMessage',
-    props: {
-        record: Object
+    export default {
+        //create component here
+        name: 'SummaryMessage',
+        props: {
+            records: Object
+        },
+        //computed property 
+        computed: {
+        totalHours() {
+        let total = 0
+        this.activityRecords.forEach( record => {
+        total = total + record.hours
+        })
+        return total 
+        }
     }
-}
-</script>
+                
+    }
+    </script>
 
-<style scoped>
+    <style scoped>
 
-</style>
+    </style>
