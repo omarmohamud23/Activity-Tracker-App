@@ -3,33 +3,17 @@ const sequelize = require("sequelize");
 module.exports = (sequelize, DataTypes) => {
     
     let Record = sequelize.define('Record', {
-        records: {
-            type: DataTypes.STRING,
-            allowNull: false
-        },
         date: {
             type: DataTypes.DATE,
             allowNull: false
         },
-
-        activity:{
-            type: DataTypes.STRING,
-            allowNull: false
-        },
         medium: {
-            types: DataTypes.STRING,
+            type: DataTypes.STRING,
             allowNull:false
         },
-
-        media:{
-            type: DataTypes.OBJECT,
-            allowNull: false
-        },
-
-        types: {
+        type: {
             type: DataTypes.STRING,
-            allowNull: false
-            
+            allowNull: false  
         },
         hours: {
             type: DataTypes.NUMBER,
@@ -37,7 +21,7 @@ module.exports = (sequelize, DataTypes) => {
         }
 })
 
-Record.sync( {force: false} ).then( ()=>{
+Record.sync( {force: true} ).then( ()=>{
     console.log('Synced record table')
 })
 

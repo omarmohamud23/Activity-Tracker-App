@@ -23,8 +23,10 @@ export default {
     //create component here
     name: 'SummaryMessage',
     props: {
-        record: Object
+        records: Object   // make sure this contains the records array
     }
+
+    // add computed property totalHours here
 }
 </script>
 

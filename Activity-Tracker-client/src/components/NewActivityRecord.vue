@@ -3,7 +3,7 @@
      <!-- HTML HERE -->
 
         <!-- TODO display the name of the activity -->
-        <h1 class="text-center"> {{activity}} Tracker</h1>
+        <h1 class="text-center">Dog Tracker</h1>
 
         <div id="add-hours" class="card">
 
@@ -21,7 +21,7 @@
                 <div class="form-group">
                     <!-- TODO display name of activity in the label -->
                     <!-- TODO use a filter to display the name of activity in lowercase -->
-                    <label class="form-label" for="date">What date did you go do some {{ activity | lowercase }}?</label>
+                    <label class="form-label" for="date">What date did you go do some activities with your dog?</label>
                     <!-- TODO use v-model to connect this input to dateString data -->
                     <input id="date" class="form-control" type="date" v-model="dateString">
                     <small id="date-help" class="form-text text-muted">
@@ -82,7 +82,7 @@ export default {
     props:{
         types: Array,
         media: Object,
-        activity: String
+        // activity: String
     },
     data(){
         return {
