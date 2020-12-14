@@ -11,7 +11,7 @@ app.use(express.static(path.join(__dirname, 'Activity-Tracker-client', 'dist')))
 
 app.use(bodyParser.json())
 
-app.use('./api',api_routes)
+app.use('/api',api_routes)
 
 app.use(function(req, res, next){
     res.status(404).send('Not found')
@@ -24,6 +24,6 @@ app.use(function (err, req, res, next) {
 })
 
 
-let server = app.listen(process.env.PORT || 3000, function(){
+let server = app.listen(process.env.PORT || 4000, function(){
     console.log('Express server running on port', server.address().port )
 })

@@ -1,6 +1,8 @@
 <template>
       <tr >
-    <td>{{ record.date | shortDate }}</td>
+    <!-- <td>{{ record.date | shortDate }}</td> -->
+    <td>{{ record.date }}</td>
+
      <td>{{ record.hours }}</td>
     <td>{{ record.type }}</td>
      <td>{{ record.medium }}</td>
@@ -10,6 +12,8 @@
 
 
 <script>
+
+// bring filters into this file 
 export default {
     name: 'ActivityRow',
     props: {
