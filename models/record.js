@@ -7,10 +7,18 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.STRING,
             allowNull: false
         },
+        date: {
+            type: DataTypes.DATE,
+            allowNull: false
+        },
 
         activity:{
             type: DataTypes.STRING,
             allowNull: false
+        },
+        medium: {
+            types: DataTypes.STRING,
+            allowNull:false
         },
 
         media:{
@@ -19,10 +27,14 @@ module.exports = (sequelize, DataTypes) => {
         },
 
         types: {
-            type: DataTypes.ARRAY,
+            type: DataTypes.STRING,
             allowNull: false
             
-    }
+        },
+        hours: {
+            type: DataTypes.NUMBER,
+            allowNull: false
+        }
 })
 
 Record.sync( {force: false} ).then( ()=>{

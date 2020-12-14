@@ -3,7 +3,7 @@ let db = require('../models')
 let Sequelize = require('sequelize')
 const { sequelize } = require('../models')
 
-let Record  = db.Student
+let Record  = db.Record
 
 let router = express.Router()
 
