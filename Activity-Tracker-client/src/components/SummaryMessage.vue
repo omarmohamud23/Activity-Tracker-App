@@ -8,7 +8,7 @@
             <div class="card-body">
 
                 <!-- TODO add computed property to calculate the total hours -->
-                <p>You have practiced a total of {{ totalHours }} hours</p>
+                <p>You have spent with your dog a total of {{ totalHours }} hours</p>
 
                 
           

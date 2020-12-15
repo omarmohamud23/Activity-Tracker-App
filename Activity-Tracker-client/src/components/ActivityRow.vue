@@ -21,8 +21,8 @@ export default {
         edit:Boolean
     },
     //filter: {
-        //shortDate
-  //  },
+       // shortDate
+    //},
     methods: {
     activityRecords(record) {
         this.$emit('activityRecords', record)
