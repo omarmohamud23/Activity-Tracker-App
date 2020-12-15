@@ -11,8 +11,8 @@
         "pg": "^8.5.1",
         "sequelize": "^5.0.0",
         "vue": "^2.6.11"
-},
-"devDependencies": {
-    "sqlite3": "^5.0.0"
-}
+    },
+    "devDependencies": {
+        "sqlite3": "^5.0.0"
+    }
 }
