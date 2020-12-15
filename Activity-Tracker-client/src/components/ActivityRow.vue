@@ -1,6 +1,6 @@
 <template>
       <tr >
-    <td>{{ record.date }}</td>
+    <td>{{ record.date | shortDate}}</td>
      <td>{{ record.hours }}</td>
     <td>{{ record.type }}</td>
      <td>{{ record.medium }}</td>
@@ -12,7 +12,7 @@
 <script>
 
     //bring filters into this file
-    //import{shortDate} from "./services/filter.js"
+    import{shortDate} from "../services/filter.js"
 
 export default {
     name: 'ActivityRow',
@@ -20,9 +20,9 @@ export default {
         record:Object,
         edit:Boolean
     },
-    //filter: {
-       // shortDate
-    //},
+    filters: {
+        shortDate
+    },
     methods: {
     activityRecords(record) {
         this.$emit('activityRecords', record)

@@ -31,10 +31,6 @@
                      v-bind:record="record"
                      v-on:delete-record="deleteRecord"
                      v-bind:edit="editRecord">
-                            <td>{{ record.date }}</td>
-                            <td>{{ record.hours }}</td>
-                            <td>{{ record.type }}</td>
-                            <td>{{ record.medium }}</td>
                         </activity-row>
                     </table>
                 </div>
