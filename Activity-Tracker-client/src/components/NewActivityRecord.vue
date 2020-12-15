@@ -82,7 +82,7 @@ export default {
     props:{
         types: Array,
         media: Object,
-       // activity: String
+        
     },
     data(){
         return {

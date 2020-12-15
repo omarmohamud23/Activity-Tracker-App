@@ -23,13 +23,13 @@
         //create component here
         name: 'SummaryMessage',
         props: {
-            records: Object
+            records: Array
         },
         //computed property 
         computed: {
         totalHours() {
         let total = 0
-        this.activityRecords.forEach( record => {
+        this.records.forEach( record => {
         total = total + record.hours
         })
         return total 

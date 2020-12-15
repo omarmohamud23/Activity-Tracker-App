@@ -22,11 +22,12 @@ router.post('/records' ,function (req, res, next){
     Record.create(requestData).then( (data) => {
         return res.status(201).send('ok')
     }).catch (err => {
+        console.log(err)
         if(err instanceof Sequelize.ValidationError) {
-            let messages = err.errors.map( (e) => e.message)
+           let messages = err.errors.map( (e) => e.message)
             
             console.log(messages)
-            return res.status(400).json(messages)
+           return res.status(400).json(messages)
         }
 
         return next(err)

@@ -12,7 +12,7 @@
 <script>
 
     //bring filters into this file
-
+    //import{shortDate} from "./services/filter.js"
 
 export default {
     name: 'ActivityRow',
@@ -20,6 +20,9 @@ export default {
         record:Object,
         edit:Boolean
     },
+    //filter: {
+        //shortDate
+  //  },
     methods: {
     activityRecords(record) {
         this.$emit('activityRecords', record)

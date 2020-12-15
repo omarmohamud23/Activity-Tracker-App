@@ -9,8 +9,7 @@
     </new-activity-record>
     <records-table v-bind:records="records" 
      v-on:delete-record="recordDeleted"></records-table>
-    <activity-row></activity-row>
-    <summary-message></summary-message>
+    <summary-message v-bind:records="records" ></summary-message>
 
   </div>
 </template>
@@ -18,7 +17,6 @@
 <script>
 import NewActivityRecord from './components/NewActivityRecord.vue'
 import RecordsTable from './components/RecordsTable.vue'
-import ActivityRow from  './components/ActivityRow.vue'
 import SummaryMessage from './components/SummaryMessage.vue'
 
 
@@ -28,8 +26,8 @@ export default {
   components: {
     NewActivityRecord,
     RecordsTable,
-    SummaryMessage,
-    ActivityRow
+    SummaryMessage
+    
   },
   data(){
     return{

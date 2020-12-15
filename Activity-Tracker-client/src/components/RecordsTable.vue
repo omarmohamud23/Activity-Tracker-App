@@ -31,7 +31,7 @@
                      v-bind:record="record"
                      v-on:delete-record="deleteRecord"
                      v-bind:edit="editRecord">
-                            <td>{{ record.date}}</td>
+                            <td>{{ record.date }}</td>
                             <td>{{ record.hours }}</td>
                             <td>{{ record.type }}</td>
                             <td>{{ record.medium }}</td>
@@ -49,6 +49,9 @@
 
 <script>
 import ActivityRow from './ActivityRow.vue'
+
+
+
 export default {
   components: { ActivityRow },
     //create component here 
