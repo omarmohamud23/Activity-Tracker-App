@@ -17,7 +17,7 @@ module.exports = (sequelize, DataTypes) => {
             
         },
         hours: {
-            type: DataTypes.NUMBER,
+            type: DataTypes.FLOAT,
             allowNull: false
         }
 })

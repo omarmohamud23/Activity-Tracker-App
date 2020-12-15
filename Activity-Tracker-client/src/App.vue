@@ -10,7 +10,7 @@
     </new-activity-record>
     <records-table v-bind:records="records" 
      v-on:delete-record="recordDeleted"
-     v-bind:update-record="updateRecord"></records-table>
+     ></records-table>
     <summary-message v-bind:records="records" ></summary-message>
 
   </div>
