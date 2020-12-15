@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     
+    <!-- listing all the 3 componenets -->
     <new-activity-record 
     v-on:record-added="newRecordAdded" 
     v-bind:types="types" 
@@ -8,13 +9,16 @@
    >
     </new-activity-record>
     <records-table v-bind:records="records" 
-     v-on:delete-record="recordDeleted"></records-table>
+     v-on:delete-record="recordDeleted"
+     v-bind:update-record="updateRecord"></records-table>
     <summary-message v-bind:records="records" ></summary-message>
 
   </div>
 </template>
 
 <script>
+
+//import 3 new files that we just made 
 import NewActivityRecord from './components/NewActivityRecord.vue'
 import RecordsTable from './components/RecordsTable.vue'
 import SummaryMessage from './components/SummaryMessage.vue'
@@ -24,6 +28,7 @@ import SummaryMessage from './components/SummaryMessage.vue'
 export default {
   name: 'App',
   components: {
+    //list all of the child componenets here
     NewActivityRecord,
     RecordsTable,
     SummaryMessage

@@ -25,7 +25,8 @@
         props: {
             records: Array
         },
-        //computed property 
+      
+      //TODO add computed property to calculate the total hours
         computed: {
         totalHours() {
         let total = 0

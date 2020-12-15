@@ -2,7 +2,7 @@ import axios from 'axios'
 
 const base_url  = '/api/records'
 
-
+// talks to our server
 export default {
 
     getAllRecords(){

@@ -70,10 +70,11 @@ export default {
             //emit message to parent(app.vue)
             this.$emit('new-record-added', this.record)
        },
-       deleteRecord(){
+       deleteRecord(record){
            this.$emit('delete-record', record)
        }
     },
+    //computed property to display total records
        computed: {
         totalRecords() {
         if (this.records.length == 1) {

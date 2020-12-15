@@ -96,6 +96,7 @@ export default {
         }
     },
     methods: {
+        //adds new record 
         addNewRecord(){
             //clearing previous errors if there is any
                         this.errors = []
@@ -108,15 +109,16 @@ export default {
                         this.errors.push('Select a valid date, today or in the past.')
                     }
 
-
+                    //validating hours least ou can enter is 0 and 24 is the most
                     if(this.hours <= 0 || this.hours > 24 ) {
                         this.errors.push('The number of hours must be greater than 0 and less than 24')
                     }
-
+                    
+                    //must select a type to continue 
                     if(!this.type){
                         this.errors.push('Select a type')
                     }
-
+                    //pick a media or message will pop up
                     if (!this.medium) {
                         this.errors.push('Select a media')
                     }
@@ -134,7 +136,8 @@ export default {
                         this.type = ''
                         this.medium = ''
                     }
-
+                 // This component has one focused job to do , its to be a form , display a form, validate the form
+                 // and the tell something else about the new Activity Record
         }
         
     }
